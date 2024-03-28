@@ -1,3 +1,10 @@
+import os
+
+# Sprawdzenie, czy sesja jest uruchomiona na Waylandzie
+if os.getenv('XDG_SESSION_TYPE') == 'wayland':
+    # Ustawienie platformy Qt na 'xcb', aby używać X11 przez XCB (XWayland)
+    os.environ['QT_QPA_PLATFORM'] = 'xcb'
+
 import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtCore import QTimer
